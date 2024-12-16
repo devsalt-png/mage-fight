@@ -82,3 +82,5 @@ text = "DEF: 100"
 [node name="PlayerPanelManager" type="Node" parent="PlayerPanel"]
 unique_name_in_owner = true
 script = ExtResource("1_e5pfi")
+
+[connection signal="text_changed" from="PlayerPanel/EnterPlayerName" to="." method="_on_enter_player_name_text_changed"]
