@@ -8,7 +8,7 @@ var username = " "
 
 func _input(_event: InputEvent) -> void:
 		if Input.is_action_pressed("Strike"):
-			player_panel_manager.dmg_sent()
+			player_panel_manager.player_dmg_sent()
 
 
 func _on_enter_player_name_text_changed(new_text: String) -> void:

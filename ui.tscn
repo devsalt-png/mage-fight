@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://croqw2of676lh"]
+[gd_scene load_steps=4 format=3 uid="uid://croqw2of676lh"]
 
 [ext_resource type="Script" path="res://player_panel_manager.gd" id="1_e5pfi"]
 [ext_resource type="Script" path="res://uitst.gd" id="1_ymilw"]
+[ext_resource type="Script" path="res://enemy_panel_manager.gd" id="3_8hp7u"]
 
 [node name="UI" type="Node"]
 script = ExtResource("1_ymilw")
@@ -20,10 +21,10 @@ grow_vertical = 2
 [node name="EnterPlayerName" type="LineEdit" parent="PlayerPanel"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 238.0
-offset_top = -108.0
-offset_right = 562.0
-offset_bottom = -58.0
+offset_left = 411.0
+offset_top = -511.0
+offset_right = 735.0
+offset_bottom = -461.0
 theme_override_font_sizes/font_size = 30
 placeholder_text = "Enter name here..."
 
@@ -39,7 +40,7 @@ text = "NAME"
 horizontal_alignment = 2
 autowrap_mode = 2
 
-[node name="dmg test label" type="Label" parent="PlayerPanel"]
+[node name="DMG Status" type="Label" parent="PlayerPanel"]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 350.0
@@ -79,8 +80,96 @@ offset_bottom = 106.0
 theme_override_font_sizes/font_size = 30
 text = "DEF: 100"
 
+[node name="CRITICAL" type="Label" parent="PlayerPanel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 350.0
+offset_top = 36.0
+offset_right = 552.0
+offset_bottom = 78.0
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+autowrap_mode = 2
+
 [node name="PlayerPanelManager" type="Node" parent="PlayerPanel"]
 unique_name_in_owner = true
 script = ExtResource("1_e5pfi")
+
+[node name="EnemyPanel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 580.0
+offset_top = 519.0
+offset_right = -14.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="EnemyName" type="Label" parent="EnemyPanel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 350.0
+offset_top = -1.0
+offset_right = 552.0
+offset_bottom = 41.0
+theme_override_font_sizes/font_size = 30
+text = "ENEMY"
+horizontal_alignment = 2
+autowrap_mode = 2
+
+[node name="EnemyDMG" type="Label" parent="EnemyPanel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 350.0
+offset_top = 68.0
+offset_right = 570.0
+offset_bottom = 110.0
+theme_override_font_sizes/font_size = 30
+text = "DMG: 0"
+
+[node name="EnemyHealth" type="Label" parent="EnemyPanel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 6.0
+offset_top = 2.0
+offset_right = 226.0
+offset_bottom = 44.0
+theme_override_font_sizes/font_size = 30
+text = "Health: 100"
+
+[node name="EnemyATK" type="Label" parent="EnemyPanel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 6.0
+offset_top = 33.0
+offset_right = 226.0
+offset_bottom = 75.0
+theme_override_font_sizes/font_size = 30
+text = "ATK: 100"
+
+[node name="EnemyDEF" type="Label" parent="EnemyPanel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 6.0
+offset_top = 64.0
+offset_right = 226.0
+offset_bottom = 106.0
+theme_override_font_sizes/font_size = 30
+text = "DEF: 100"
+
+[node name="EnemyCRIT" type="Label" parent="EnemyPanel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -220.0
+offset_top = 37.0
+offset_right = -18.0
+offset_bottom = 79.0
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="EnemyPanelManager" type="Node" parent="EnemyPanel"]
+script = ExtResource("3_8hp7u")
 
 [connection signal="text_changed" from="PlayerPanel/EnterPlayerName" to="." method="_on_enter_player_name_text_changed"]
