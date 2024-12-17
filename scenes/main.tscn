@@ -1,23 +1,18 @@
 [gd_scene load_steps=10 format=3 uid="uid://oy7voe581g7s"]
 
-[ext_resource type="Texture2D" uid="uid://xkglpjoi4ghs" path="res://chessboard bg.png" id="1_jd68t"]
-[ext_resource type="Texture2D" uid="uid://bfrky5egwdv73" path="res://Screenshot 2024-12-14 031838.png" id="2_g8015"]
-[ext_resource type="Script" path="res://player.gd" id="2_vrexa"]
-[ext_resource type="Texture2D" uid="uid://d3gfgg45ao74v" path="res://solid-circle-png-thumb16.png" id="4_7gdtd"]
-[ext_resource type="PackedScene" uid="uid://croqw2of676lh" path="res://ui.tscn" id="4_pwyya"]
-[ext_resource type="PackedScene" uid="uid://cff5al66h1285" path="res://margic.tscn" id="6_fxnqm"]
+[ext_resource type="Texture2D" uid="uid://xkglpjoi4ghs" path="res://assets/chessboard bg.png" id="1_jd68t"]
+[ext_resource type="Texture2D" uid="uid://bfrky5egwdv73" path="res://assets/Screenshot 2024-12-14 031838.png" id="2_g8015"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="2_vrexa"]
+[ext_resource type="Texture2D" uid="uid://d3gfgg45ao74v" path="res://assets/solid-circle-png-thumb16.png" id="4_7gdtd"]
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="4_p0678"]
+[ext_resource type="PackedScene" uid="uid://croqw2of676lh" path="res://scenes/ui.tscn" id="4_pwyya"]
+[ext_resource type="PackedScene" uid="uid://cff5al66h1285" path="res://scenes/margic.tscn" id="6_fxnqm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wgmxe"]
 size = Vector2(28, 42)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_pryj0"]
-radius = 26.0
-
-[sub_resource type="GDScript" id="GDScript_6eqdg"]
-script/source = "extends Node
-
-@onready var player_panel_manager: Node = %Main/UI/PlayerPanel/PlayerPanelManager
-"
+[sub_resource type="CircleShape2D" id="CircleShape2D_lb38j"]
+radius = 25.02
 
 [node name="Main" type="Node"]
 
@@ -41,20 +36,19 @@ texture = ExtResource("2_g8015")
 position = Vector2(0, -0.333328)
 shape = SubResource("RectangleShape2D_wgmxe")
 
-[node name="Enemy" type="CharacterBody2D" parent="."]
+[node name="Enemy" type="Area2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(1081, 314)
+script = ExtResource("4_p0678")
 
 [node name="Sprite2D" type="Sprite2D" parent="Enemy"]
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("4_7gdtd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
-shape = SubResource("CircleShape2D_pryj0")
+shape = SubResource("CircleShape2D_lb38j")
 
 [node name="UI" parent="." instance=ExtResource("4_pwyya")]
-
-[node name="tst" type="Node" parent="."]
-script = SubResource("GDScript_6eqdg")
 
 [node name="Margic" parent="." instance=ExtResource("6_fxnqm")]
 unique_name_in_owner = true

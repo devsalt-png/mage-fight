@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://cff5al66h1285"]
+
+[ext_resource type="Script" path="res://scripts/margic.gd" id="1_ac72i"]
+[ext_resource type="Texture2D" uid="uid://dcfgp0sdh02vl" path="res://assets/Screenshot 2024-12-17 015328.png" id="2_qbqao"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6x5oq"]
+size = Vector2(12, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jvyw2"]
+size = Vector2(12, 12)
+
+[node name="Margic" type="CharacterBody2D"]
+position = Vector2(70, 318)
+script = ExtResource("1_ac72i")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(3, 3)
+texture = ExtResource("2_qbqao")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_6x5oq")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_jvyw2")
+
+[node name="Duration" type="Timer" parent="."]
+wait_time = 5.0
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

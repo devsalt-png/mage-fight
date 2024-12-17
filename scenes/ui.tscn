@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://croqw2of676lh"]
 
-[ext_resource type="Script" path="res://player_panel_manager.gd" id="1_e5pfi"]
-[ext_resource type="Script" path="res://uitst.gd" id="1_ymilw"]
-[ext_resource type="Script" path="res://player_panel.gd" id="2_ekqk6"]
-[ext_resource type="Script" path="res://enemy_panel_manager.gd" id="3_8hp7u"]
+[ext_resource type="Script" path="res://scripts/player_panel_manager.gd" id="1_e5pfi"]
+[ext_resource type="Script" path="res://scripts/uitst.gd" id="1_ymilw"]
+[ext_resource type="Script" path="res://scripts/player_panel.gd" id="2_ekqk6"]
+[ext_resource type="Script" path="res://scripts/enemy_panel_manager.gd" id="3_8hp7u"]
 
 [node name="UI" type="Node"]
 script = ExtResource("1_ymilw")
