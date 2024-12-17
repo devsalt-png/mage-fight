@@ -16,30 +16,30 @@ var e_dmg = 0.0
 var e_crit_rate := 0.05
 var e_crit_dmg := 0.5
 
-var xx := PlayerPanelMngr.new()
+var xy := PlayerVars
 
 func enemy_dmg_received(): # this one's incomplete
-	xx.dmg += 0.0
-	e_health -= xx.dmg
+	xy.dmg += 0.0
+	e_health -= xy.dmg
 	if e_health <= 0:
 		e_health = 0
 	enemy_health.text = "Health: " + str(e_health)
 
 func enemy_dmg_sent():
-	xx.def += 0.0
+	xy.def += 0.0
 	var crit_chance = randf_range(0,1)
 	var e_true_dmg = e_atk * 0.1
 	var e_crit = 0.0
 	
 	if crit_chance <= e_crit_rate:
-		e_dmg = (e_true_dmg - (e_true_dmg / xx.def))
+		e_dmg = (e_true_dmg - (e_true_dmg / xy.def))
 		e_crit = (e_dmg + (e_dmg * e_crit_dmg))
 		enemy_dmg.text = "DMG: " + str("%.1f" % e_crit)
 		enemy_crit.text = "CRITICAL"
 		enemy_crit.modulate = Color.RED
 		print(e_crit)
 	elif crit_chance >= e_crit_rate:
-		e_dmg = (e_true_dmg - (e_true_dmg / xx.def))
+		e_dmg = (e_true_dmg - (e_true_dmg / xy.def))
 		enemy_dmg.text = "DMG: " + str("%.1f" % e_dmg)
 		enemy_crit.text = " "
 		print(e_dmg)

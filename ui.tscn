@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://croqw2of676lh"]
+[gd_scene load_steps=5 format=3 uid="uid://croqw2of676lh"]
 
 [ext_resource type="Script" path="res://player_panel_manager.gd" id="1_e5pfi"]
 [ext_resource type="Script" path="res://uitst.gd" id="1_ymilw"]
+[ext_resource type="Script" path="res://player_panel.gd" id="2_ekqk6"]
 [ext_resource type="Script" path="res://enemy_panel_manager.gd" id="3_8hp7u"]
 
 [node name="UI" type="Node"]
@@ -17,6 +18,7 @@ offset_right = -584.0
 offset_bottom = -16.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("2_ekqk6")
 
 [node name="EnterPlayerName" type="LineEdit" parent="PlayerPanel"]
 unique_name_in_owner = true

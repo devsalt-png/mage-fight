@@ -1,7 +1,5 @@
 extends Node
 
-class_name PlayerPanelMngr
-
 @onready var health_status: Label = %"Health Status"
 @onready var atk_status: Label = %"ATK Status"
 @onready var def_status: Label = %"DEF Status"
@@ -45,7 +43,7 @@ func player_dmg_sent():
 	else:
 		critical.text = " "
 	
-func stats_bonus():
+func player_stats_bonus():
 	var atk_multi := 0.0
 	var atk_flat := 0
 	var def_multi := 0.0
