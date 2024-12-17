@@ -1,12 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://oy7voe581g7s"]
+[gd_scene load_steps=10 format=3 uid="uid://oy7voe581g7s"]
 
 [ext_resource type="Texture2D" uid="uid://xkglpjoi4ghs" path="res://chessboard bg.png" id="1_jd68t"]
 [ext_resource type="Texture2D" uid="uid://bfrky5egwdv73" path="res://Screenshot 2024-12-14 031838.png" id="2_g8015"]
 [ext_resource type="Script" path="res://player.gd" id="2_vrexa"]
 [ext_resource type="Texture2D" uid="uid://d3gfgg45ao74v" path="res://solid-circle-png-thumb16.png" id="4_7gdtd"]
 [ext_resource type="PackedScene" uid="uid://croqw2of676lh" path="res://ui.tscn" id="4_pwyya"]
-[ext_resource type="Script" path="res://margic.gd" id="6_0l4u5"]
-[ext_resource type="Texture2D" uid="uid://dcfgp0sdh02vl" path="res://Screenshot 2024-12-17 015328.png" id="6_57lo6"]
+[ext_resource type="PackedScene" uid="uid://cff5al66h1285" path="res://margic.tscn" id="6_fxnqm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wgmxe"]
 size = Vector2(28, 42)
@@ -20,9 +19,6 @@ script/source = "extends Node
 @onready var player_panel_manager: Node = %Main/UI/PlayerPanel/PlayerPanelManager
 "
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6x5oq"]
-size = Vector2(12, 12)
-
 [node name="Main" type="Node"]
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -33,6 +29,7 @@ texture = ExtResource("1_jd68t")
 stretch_mode = 1
 
 [node name="Player" type="CharacterBody2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(38, 318)
 scale = Vector2(1.5, 1.5)
 script = ExtResource("2_vrexa")
@@ -59,14 +56,6 @@ shape = SubResource("CircleShape2D_pryj0")
 [node name="tst" type="Node" parent="."]
 script = SubResource("GDScript_6eqdg")
 
-[node name="Margic" type="CharacterBody2D" parent="."]
-position = Vector2(70, 318)
-script = ExtResource("6_0l4u5")
-SPEED = 300.0
-
-[node name="Sprite2D" type="Sprite2D" parent="Margic"]
-scale = Vector2(3, 3)
-texture = ExtResource("6_57lo6")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Margic"]
-shape = SubResource("RectangleShape2D_6x5oq")
+[node name="Margic" parent="." instance=ExtResource("6_fxnqm")]
+unique_name_in_owner = true
+position = Vector2(21, -75)
