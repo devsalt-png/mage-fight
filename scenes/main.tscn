@@ -52,4 +52,4 @@ shape = SubResource("CircleShape2D_lb38j")
 
 [node name="Margic" parent="." instance=ExtResource("6_fxnqm")]
 unique_name_in_owner = true
-position = Vector2(21, -75)
+position = Vector2(1193, 316)

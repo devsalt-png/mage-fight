@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @onready var player = get_parent()
-@onready var margic = load("res://margic.tscn")
+@onready var margic = load("res://scenes/margic.tscn")
 
 var speed = 400  # speed in pixels/sec
 
